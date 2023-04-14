@@ -42,12 +42,12 @@
             this.snils = new System.Windows.Forms.Label();
             this.Title7 = new System.Windows.Forms.Label();
             this.polis = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.UserInfo = new System.Windows.Forms.TableLayoutPanel();
             this.Title8 = new System.Windows.Forms.Label();
             this.birthday = new System.Windows.Forms.Label();
             this.Title9 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.UserInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // address
@@ -59,7 +59,7 @@
             this.address.Padding = new System.Windows.Forms.Padding(5);
             this.address.Size = new System.Drawing.Size(10, 23);
             this.address.TabIndex = 12;
-            this.address.Tag = "";
+            this.address.Tag = "4";
             // 
             // passport
             // 
@@ -70,7 +70,7 @@
             this.passport.Padding = new System.Windows.Forms.Padding(5);
             this.passport.Size = new System.Drawing.Size(10, 23);
             this.passport.TabIndex = 11;
-            this.passport.Tag = "";
+            this.passport.Tag = "2";
             // 
             // phone
             // 
@@ -81,7 +81,7 @@
             this.phone.Padding = new System.Windows.Forms.Padding(5);
             this.phone.Size = new System.Drawing.Size(10, 23);
             this.phone.TabIndex = 10;
-            this.phone.Tag = "";
+            this.phone.Tag = "5";
             // 
             // email
             // 
@@ -92,7 +92,7 @@
             this.email.Padding = new System.Windows.Forms.Padding(5);
             this.email.Size = new System.Drawing.Size(10, 23);
             this.email.TabIndex = 9;
-            this.email.Tag = "";
+            this.email.Tag = "6";
             // 
             // fullName
             // 
@@ -103,7 +103,7 @@
             this.fullName.Padding = new System.Windows.Forms.Padding(5);
             this.fullName.Size = new System.Drawing.Size(10, 23);
             this.fullName.TabIndex = 8;
-            this.fullName.Tag = "";
+            this.fullName.Tag = "1";
             // 
             // Title5
             // 
@@ -181,9 +181,8 @@
             this.snils.Padding = new System.Windows.Forms.Padding(5);
             this.snils.Size = new System.Drawing.Size(10, 23);
             this.snils.TabIndex = 14;
-            this.snils.Tag = "";
+            this.snils.Tag = "7";
             this.snils.Visible = false;
-            this.snils.VisibleChanged += new System.EventHandler(this.snils_VisibleChanged);
             // 
             // Title7
             // 
@@ -206,50 +205,49 @@
             this.polis.Padding = new System.Windows.Forms.Padding(5);
             this.polis.Size = new System.Drawing.Size(10, 23);
             this.polis.TabIndex = 16;
-            this.polis.Tag = "";
+            this.polis.Tag = "8";
             this.polis.Visible = false;
-            this.polis.VisibleChanged += new System.EventHandler(this.polis_VisibleChanged);
             // 
-            // tableLayoutPanel1
+            // UserInfo
             // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.Title8, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.Title1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.polis, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.Title7, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.Title5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.snils, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.Title6, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.Title3, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.Title2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.passport, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.Title4, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.fullName, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.email, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.phone, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.address, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.birthday, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.Title9, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.id, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(118, 207);
-            this.tableLayoutPanel1.TabIndex = 17;
+            this.UserInfo.AutoSize = true;
+            this.UserInfo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UserInfo.ColumnCount = 2;
+            this.UserInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.UserInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.UserInfo.Controls.Add(this.Title8, 0, 3);
+            this.UserInfo.Controls.Add(this.Title1, 0, 1);
+            this.UserInfo.Controls.Add(this.polis, 1, 8);
+            this.UserInfo.Controls.Add(this.Title7, 0, 8);
+            this.UserInfo.Controls.Add(this.Title5, 0, 4);
+            this.UserInfo.Controls.Add(this.snils, 1, 7);
+            this.UserInfo.Controls.Add(this.Title6, 0, 7);
+            this.UserInfo.Controls.Add(this.Title3, 0, 6);
+            this.UserInfo.Controls.Add(this.Title2, 0, 2);
+            this.UserInfo.Controls.Add(this.passport, 1, 2);
+            this.UserInfo.Controls.Add(this.Title4, 0, 5);
+            this.UserInfo.Controls.Add(this.fullName, 1, 1);
+            this.UserInfo.Controls.Add(this.email, 1, 6);
+            this.UserInfo.Controls.Add(this.phone, 1, 5);
+            this.UserInfo.Controls.Add(this.address, 1, 4);
+            this.UserInfo.Controls.Add(this.birthday, 1, 3);
+            this.UserInfo.Controls.Add(this.Title9, 0, 0);
+            this.UserInfo.Controls.Add(this.id, 1, 0);
+            this.UserInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserInfo.Location = new System.Drawing.Point(0, 0);
+            this.UserInfo.Name = "UserInfo";
+            this.UserInfo.RowCount = 9;
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.UserInfo.Size = new System.Drawing.Size(118, 207);
+            this.UserInfo.TabIndex = 17;
             // 
             // Title8
             // 
@@ -271,6 +269,7 @@
             this.birthday.Padding = new System.Windows.Forms.Padding(5);
             this.birthday.Size = new System.Drawing.Size(10, 23);
             this.birthday.TabIndex = 19;
+            this.birthday.Tag = "3";
             // 
             // Title9
             // 
@@ -293,8 +292,8 @@
             this.id.Padding = new System.Windows.Forms.Padding(5);
             this.id.Size = new System.Drawing.Size(10, 23);
             this.id.TabIndex = 21;
+            this.id.Tag = "0";
             this.id.Visible = false;
-            this.id.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // UserOutInterface
             // 
@@ -302,12 +301,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.UserInfo);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UserOutInterface";
             this.Size = new System.Drawing.Size(118, 207);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.UserInfo.ResumeLayout(false);
+            this.UserInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,7 +328,7 @@
         private System.Windows.Forms.Label snils;
         private System.Windows.Forms.Label Title7;
         private System.Windows.Forms.Label polis;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel UserInfo;
         private System.Windows.Forms.Label birthday;
         private System.Windows.Forms.Label Title8;
         private System.Windows.Forms.Label Title9;

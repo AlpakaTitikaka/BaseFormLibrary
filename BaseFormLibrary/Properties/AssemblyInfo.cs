@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("BaseFormLibrary")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This package have some form components")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("AlpakaTitikaka")]
 [assembly: AssemblyProduct("BaseFormLibrary")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("AlpakaTitikaka")]
 [assembly: AssemblyCulture("")]
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми

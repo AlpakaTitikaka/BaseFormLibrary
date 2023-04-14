@@ -108,7 +108,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Authorization";
             this.Size = new System.Drawing.Size(225, 170);
-            this.SizeChanged += new System.EventHandler(this.Authorization_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

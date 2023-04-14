@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseFormLibrary.Error;
+using System;
 using System.Drawing;
 
 namespace BusinessLib.Security.Error
@@ -7,8 +8,13 @@ namespace BusinessLib.Security.Error
     {
         private string text;
         private Bitmap puzzle;
+        private string digits = "1234567890";
+        private string lettersEn = "qwertyuiopasdfghjklzxcvbnm";
+        private string lettersRus = "йцукенгёшщзхъфывапролджэячсмитьбю";
+        private string letRusDig = "1йцук2енгё3шщз4хъфы5вап6рол7джэ8ячс9мить0бю";
+        private string letEnDig = "1qwe2rty3uio4pas5dfg6hjk7lzx8cvb9nm0";
 
-        public Captcha(int Width, int Height, int maxValue)
+        public Captcha(int Width, int Height, int maxValue, Chars chars)
         {
             puzzle = new Bitmap(Width, Height);
             Brush[] TextColors = {
@@ -36,7 +42,7 @@ namespace BusinessLib.Security.Error
             Graphics Canvas = Graphics.FromImage(puzzle);
             Canvas.Clear(Color.Gray);
             Canvas.RotateTransform(TextRotates[random.Next(TextRotates.Length)]);
-            GenerateText(maxValue);
+            GenerateText(maxValue,chars);
             Canvas.DrawString(text,
                 new Font(new FontFamily("Arial"),
                 40,
@@ -64,10 +70,25 @@ namespace BusinessLib.Security.Error
 
         public bool Check(string answer) => text.Equals(answer);
 
-        public void GenerateText(int maxValue)
+        private string SetChars(Chars chars)
+        {
+            if (chars == Chars.OnlyEnLetters)
+                return lettersEn;
+            if (chars == Chars.OnlyRusLetters)
+                return lettersRus;
+            if (chars == Chars.OnlyDigits)
+                return digits;
+            if (chars == Chars.EnLettersDigits)
+                return letEnDig;
+            if (chars == Chars.RusLettersDigits)
+                return letRusDig;
+            return letEnDig;
+        }
+
+        public void GenerateText(int maxValue, Chars chars)
         {
             Random random = new Random();
-            string allChars = "1qwx2erc3tyv4uib5opn6asm7df8gh9jk0lz";
+            string allChars = SetChars(chars);
             text = "";
             for (int i = 0; i < maxValue; i++)
                 text += allChars[random.Next(allChars.Length)];

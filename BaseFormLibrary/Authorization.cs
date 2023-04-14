@@ -1,32 +1,46 @@
-﻿using BusinessLib.Security.Error;
+﻿using BaseFormLibrary.Error;
+using BusinessLib.Security.Error;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BaseFormLibrary
 {
     public partial class Authorization : UserControl
     {
-        public Form UserForm;
+        public Form UserForm { get; set; }
         public Func<string, string, bool> LoginPasswordCheck;
-        private int Incorrect = 0;
+        public int Incorrect { get; set; }
+        private int incorrect { get; set; }
+        public int CaptchaSimbolCount { get; set; }
+        public Chars CaptchaSimbols { get; set; }
+
+        public Color ButtonColor
+        {
+            get => Authorize.BackColor;
+            set => Authorize.BackColor = value;
+        }
+
+        public FlatStyle ButtonFlatStyle
+        {
+            get => Authorize.FlatStyle;
+            set => Authorize.FlatStyle = value;
+        }
 
         public Authorization()
         {
             InitializeComponent();
+            CaptchaSimbolCount = 3;
+            CaptchaSimbols = Chars.Any;
+            incorrect = 0;
+            Incorrect = 2;
         }
 
         private void Authorize_Click(object sender, EventArgs e)
         {
             if (LoginPasswordCheck.Invoke(Login.Text, Password.Text))
             {
-                Incorrect = 0;
+                incorrect = 0;
                 Login.Text = "";
                 Password.Text = "";
                 PasswordVisibility.Checked = false;
@@ -35,10 +49,10 @@ namespace BaseFormLibrary
             }
             else
             {
-                Incorrect++;
+                incorrect++;
                 MessageBox.Show("Неверный логин или пароль");
-                if (Incorrect > 1)
-                    using (CheckUser check = new CheckUser())
+                if (Incorrect == incorrect)
+                    using (CheckUser check = new CheckUser(CaptchaSimbolCount, CaptchaSimbols))
                         if (check.ShowDialog(this) == DialogResult.OK)
                             check.Dispose();
             }
@@ -46,11 +60,5 @@ namespace BaseFormLibrary
 
         private void PasswordVisibility_CheckedChanged(object sender, EventArgs e)
             => Password.UseSystemPasswordChar = !PasswordVisibility.Checked;
-
-        private void Authorization_SizeChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < Controls.Count; i++)
-                Controls[i].Location = new Point((Width - Controls[i].Width) / 2, Controls[i].Location.Y);
-        }
     }
 }

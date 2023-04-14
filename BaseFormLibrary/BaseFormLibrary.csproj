@@ -31,7 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,17 +53,25 @@
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
     <Compile Include="Counter.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Counter.Designer.cs">
       <DependentUpon>Counter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Count\CounterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Count\CounterForm.Designer.cs">
+      <DependentUpon>CounterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Error\Chars.cs" />
+    <Compile Include="ForFilter\FiltersCount.cs" />
     <Compile Include="LibraryMethods.cs" />
-    <Compile Include="OneFilter.cs">
+    <Compile Include="Filter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OneFilter.Designer.cs">
-      <DependentUpon>OneFilter.cs</DependentUpon>
+    <Compile Include="Filter.Designer.cs">
+      <DependentUpon>Filter.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Error\Captcha.cs" />
@@ -74,12 +86,6 @@
     </Compile>
     <Compile Include="SearchString.Designer.cs">
       <DependentUpon>SearchString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TwoFilters.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="TwoFilters.Designer.cs">
-      <DependentUpon>TwoFilters.cs</DependentUpon>
     </Compile>
     <Compile Include="UserAddEditInterface.cs">
       <SubType>UserControl</SubType>
@@ -99,20 +105,17 @@
     <EmbeddedResource Include="Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Counter.resx">
-      <DependentUpon>Counter.cs</DependentUpon>
+    <EmbeddedResource Include="Count\CounterForm.resx">
+      <DependentUpon>CounterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Error\CheckUser.resx">
       <DependentUpon>CheckUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OneFilter.resx">
-      <DependentUpon>OneFilter.cs</DependentUpon>
+    <EmbeddedResource Include="Filter.resx">
+      <DependentUpon>Filter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchString.resx">
       <DependentUpon>SearchString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TwoFilters.resx">
-      <DependentUpon>TwoFilters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserAddEditInterface.resx">
       <DependentUpon>UserAddEditInterface.cs</DependentUpon>

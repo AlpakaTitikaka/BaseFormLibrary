@@ -1,22 +1,26 @@
-﻿using System;
+﻿using BaseFormLibrary.Error;
+using System;
 using System.Windows.Forms;
 
 namespace BusinessLib.Security.Error
 {
     public partial class CheckUser : Form
     {
-        public CheckUser()
+        public CheckUser(int simbolCount, Chars chars)
         {
             InitializeComponent();
+            SimbolCount = simbolCount;
+            this.chars = chars;
         }
         
         private int BlockingTime = 11; //время блокировки формы при неверном вводе
-        private int SimbolCount = 4; //количество символов в капче
+        private int SimbolCount; //количество символов в капче
+        private Chars chars; // режим капчи (какие символы генерируются)
         private Captcha Picture; //капча
 
         private void GenerateCaptcha() //ее генерация и передача в пикчер бокс
         {
-            Picture = new Captcha(Captcha.Width, Captcha.Height, SimbolCount);
+            Picture = new Captcha(Captcha.Width, Captcha.Height, SimbolCount, chars);
             Captcha.Image = Picture.Get();
         }
 

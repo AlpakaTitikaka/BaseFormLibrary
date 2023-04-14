@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -61,68 +59,83 @@ namespace BaseFormLibrary
         public bool AddPolis
         {
             get => polis.Visible;
-            set => polis.Visible = value;
+            set 
+            { 
+                polis.Visible = value; 
+                label8.Visible = value;
+            }
         }
         public bool AddSnils
         {
             get => snils.Visible;
-            set => snils.Visible = value;
+            set 
+            { 
+                snils.Visible = value; 
+                label7.Visible = value;
+            }
         }
         public bool AddId
         {
             get => id.Visible;
-            set => id.Visible = value;
+            set 
+            { 
+                id.Visible = value; 
+                label1.Visible = value;
+            }
         }
-
-        private void polis_VisibleChanged(object sender, EventArgs e)
-            => label8.Visible = ((TextBox)sender).Visible;
-
-        private void snils_VisibleChanged(object sender, EventArgs e)
-            => label7.Visible = ((TextBox)sender).Visible;
-
-
-        public void Clear()
+        public bool AddFullName
         {
-            for (int i = 0; i < Controls.OfType<TextBox>().Count(); i ++)
-                Controls.OfType<TextBox>().ElementAt(i).Text = "";
+            get => fullName.Visible;
+            set 
+            { 
+                fullName.Visible = value;
+                label2.Visible = value;
+            }
         }
-        public void SetValues(string fullname, string passport, DateTime birthday, string address, string phone, string email)
+        public bool AddPassport
         {
-            FullName = fullname;
-            Passport = passport;
-            Birhtday = birthday;
-            Address = address;
-            Phone = phone;
-            Email = email;
+            get => passport.Visible;
+            set 
+            { 
+                passport.Visible = value; 
+                label3.Visible = value;
+            }
         }
-
-        public void SetValues(string fullname, string passport, DateTime birthday, string address, string phone, string email, string polis)
+        public bool AddAddress
         {
-            SetValues(fullname, passport, birthday, address, phone, email);
-            Polis = polis;
+            get => address.Visible;
+            set 
+            { 
+                address.Visible = value; 
+                label4.Visible = value;
+            }
         }
-
-        public void SetValues(string fullname, string passport, DateTime birthday, string address, string phone, string email, string polis, string snils)
+        public bool AddPhone
         {
-            SetValues(fullname, passport, birthday, address, phone, email, polis);
-            Snils = snils;
+            get => phone.Visible;
+            set 
+            { 
+                phone.Visible = value; 
+                label5.Visible = value;
+            }
         }
-        public void SetValues(int id, string fullname, string passport, DateTime birthday, string address, string phone, string email)
+        public bool AddEmail
         {
-            SetValues(fullname, passport, birthday, address, phone, email);
-            Id = id.ToString();
+            get => email.Visible;
+            set
+            {
+                email.Visible = value;
+                label6.Visible = value;
+            }
         }
-
-        public void SetValues(int id, string fullname, string passport, DateTime birthday, string address, string phone, string email, string polis)
+        public bool AddBirhtday
         {
-            SetValues(id, fullname, passport, birthday, address, phone, email);
-            Polis = polis;
-        }
-
-        public void SetValues(int id, string fullname, string passport, DateTime birthday, string address, string phone, string email, string polis, string snils)
-        {
-            SetValues(id, fullname, passport, birthday, address, phone, email, polis);
-            Snils = snils;
+            get => birthday.Visible;
+            set
+            { 
+                birthday.Visible = value; 
+                label9.Visible = value;
+            }
         }
 
         private void resize()
@@ -134,13 +147,9 @@ namespace BaseFormLibrary
         private void UserAddEditInterface_Load(object sender, EventArgs e)
             => resize();
 
-        private void label7_VisibleChanged(object sender, EventArgs e)
-            => resize();
-
         private void UserAddEditInterface_FontChanged(object sender, EventArgs e)
             => resize();
 
-        private void id_VisibleChanged(object sender, EventArgs e)
-            => label1.Visible = ((TextBox)sender).Visible;
+        private void id_VisibleChanged(object sender, EventArgs e) => resize();
     }
 }

@@ -103,7 +103,6 @@
             this.label1.Text = "Код";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Visible = false;
-            this.label1.VisibleChanged += new System.EventHandler(this.label7_VisibleChanged);
             // 
             // id
             // 
@@ -136,6 +135,7 @@
             this.fullName.Size = new System.Drawing.Size(187, 20);
             this.fullName.TabIndex = 3;
             this.fullName.Tag = "";
+            this.fullName.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // label3
             // 
@@ -157,6 +157,7 @@
             this.passport.Size = new System.Drawing.Size(187, 20);
             this.passport.TabIndex = 5;
             this.passport.Tag = "";
+            this.passport.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // label4
             // 
@@ -190,6 +191,7 @@
             this.phone.Size = new System.Drawing.Size(187, 20);
             this.phone.TabIndex = 9;
             this.phone.Tag = "";
+            this.phone.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // label6
             // 
@@ -211,6 +213,7 @@
             this.address.Size = new System.Drawing.Size(187, 20);
             this.address.TabIndex = 11;
             this.address.Tag = "";
+            this.address.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // label7
             // 
@@ -224,7 +227,6 @@
             this.label7.Text = "СНИЛС";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label7.Visible = false;
-            this.label7.VisibleChanged += new System.EventHandler(this.label7_VisibleChanged);
             // 
             // email
             // 
@@ -234,6 +236,7 @@
             this.email.Size = new System.Drawing.Size(187, 20);
             this.email.TabIndex = 13;
             this.email.Tag = "";
+            this.email.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // label8
             // 
@@ -247,7 +250,6 @@
             this.label8.Text = "Полис";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label8.Visible = false;
-            this.label8.VisibleChanged += new System.EventHandler(this.label7_VisibleChanged);
             // 
             // snils
             // 
@@ -258,7 +260,7 @@
             this.snils.TabIndex = 15;
             this.snils.Tag = "";
             this.snils.Visible = false;
-            this.snils.VisibleChanged += new System.EventHandler(this.snils_VisibleChanged);
+            this.snils.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // label9
             // 
@@ -280,7 +282,7 @@
             this.polis.Size = new System.Drawing.Size(187, 20);
             this.polis.TabIndex = 17;
             this.polis.Visible = false;
-            this.polis.VisibleChanged += new System.EventHandler(this.polis_VisibleChanged);
+            this.polis.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // birthday
             // 
@@ -289,6 +291,7 @@
             this.birthday.Name = "birthday";
             this.birthday.Size = new System.Drawing.Size(187, 20);
             this.birthday.TabIndex = 18;
+            this.birthday.VisibleChanged += new System.EventHandler(this.id_VisibleChanged);
             // 
             // UserAddEditInterface
             // 
