@@ -117,9 +117,9 @@
             this.Title1.Location = new System.Drawing.Point(1, 3);
             this.Title1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title1.Name = "Title1";
-            this.Title1.Size = new System.Drawing.Size(47, 13);
+            this.Title1.Size = new System.Drawing.Size(53, 13);
             this.Title1.TabIndex = 13;
-            this.Title1.Text = "Фильтр";
+            this.Title1.Text = "Фильтр1";
             // 
             // Filters1
             // 
@@ -203,9 +203,9 @@
             this.Title4.Location = new System.Drawing.Point(1, 3);
             this.Title4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title4.Name = "Title4";
-            this.Title4.Size = new System.Drawing.Size(47, 13);
+            this.Title4.Size = new System.Drawing.Size(53, 13);
             this.Title4.TabIndex = 13;
-            this.Title4.Text = "Фильтр";
+            this.Title4.Text = "Фильтр3";
             // 
             // FilterPanel1
             // 
@@ -252,9 +252,9 @@
             this.Title3.Location = new System.Drawing.Point(1, 3);
             this.Title3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title3.Name = "Title3";
-            this.Title3.Size = new System.Drawing.Size(47, 13);
+            this.Title3.Size = new System.Drawing.Size(53, 13);
             this.Title3.TabIndex = 13;
-            this.Title3.Text = "Фильтр";
+            this.Title3.Text = "Фильтр2";
             // 
             // Filter
             // 

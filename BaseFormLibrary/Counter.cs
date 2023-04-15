@@ -7,6 +7,9 @@ namespace BaseFormLibrary
 {
     public partial class Counter : Component
     {
+        /// <summary>
+        /// Компонент, который открывает форму-счетчик для получения значения
+        /// </summary>
         public Counter()
         {
             InitializeComponent();
@@ -20,9 +23,16 @@ namespace BaseFormLibrary
         }
 
         private CounterForm form = new CounterForm();
-
+        /// <summary>
+        /// Метод вызывает форму-счетчик и возвращает значение из нее
+        /// </summary>
+        /// <returns>Значение счетчика</returns>
         public int Count() => Count(Value);
-
+        /// <summary>
+        /// Метод вызывает форму-счетчик, в качестве значения в строке использует начальное входное значение и возвращает значение из нее
+        /// </summary>
+        /// <param name="startValue">Начальное значение</param>
+        /// <returns>Значение счетчика</returns>
         public int Count(int startValue)
         {
             CounterForm f = new CounterForm();
@@ -41,43 +51,72 @@ namespace BaseFormLibrary
             f.Dispose();
             return value;
         }
-
+        /// <summary>
+        /// Значение в строке счетчика
+        /// </summary>
         public int Value
         {
             get => form.Value; set => form.Value = value;
         }
+        /// <summary>
+        /// Максимальное начение в строке счетчика
+        /// </summary>
         public int MaxValue
         {
             get => form.MaxValue; set => form.MaxValue = value;
         }
+        /// <summary>
+        /// Стиль оформления формы (шрифт, кегль и др)
+        /// </summary>
         public Font Font
         {
             get => form.Font; set => form.Font = value;
         }
+        /// <summary>
+        /// Заголовок счетчика
+        /// </summary>
         public string Text
         {
             get => form.Title; set => form.Title = value;
         }
+        /// <summary>
+        /// Цвет формы
+        /// </summary>
         public Color BackColor
         {
             get => form.BackColor; set => form.BackColor = value;
         }
+        /// <summary>
+        /// Цвет надписей
+        /// </summary>
         public Color ForeColor 
         { 
             get => form.ForeColor; set => form.ForeColor = value;
         }
+        /// <summary>
+        /// Надпись на кнопке установления значения
+        /// </summary>
         public string SetText
         {
             get => form.SetButtonTitle; set => form.SetButtonTitle = value;
         }
+        /// <summary>
+        /// Цвет кнопки установления значения
+        /// </summary>
         public Color SetColor
         {
             get => form.SetCountColor; set => form.SetCountColor = value;
         }
+        /// <summary>
+        /// Родительская форма, к которой принадлежит счетчик
+        /// </summary>
         public Form ParentForm
         {
             get; set;
         }
+        /// <summary>
+        /// Цвет кнопки отмены действия
+        /// </summary>
         public Color CancelColor
         {
             get => form.CancelCounterColor; set => form.CancelCounterColor = value; 

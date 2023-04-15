@@ -8,25 +8,63 @@ namespace BaseFormLibrary
 {
     public partial class Authorization : UserControl
     {
+        /// <summary>
+        /// Форма, на которую осуществляется переход после удачной авторизации
+        /// <example>
+        /// <code>
+        ///     authorization1.UserForm = new ManagerForm(this);
+        /// </code>
+        /// </example>
+        /// </summary>
         public Form UserForm { get; set; }
+        /// <summary>
+        /// Функция проверки логина и пароля
+        /// <example>
+        /// <code>
+        ///     authorization1.LoginPasswordCheck = Session.Start;
+        /// </code>
+        /// </example>
+        /// </summary>
         public Func<string, string, bool> LoginPasswordCheck;
+        /// <summary>
+        /// Количество неверный попыток
+        /// </summary>
         public int Incorrect { get; set; }
         private int incorrect { get; set; }
+        /// <summary>
+        /// Количество символов в каптче
+        /// </summary>
         public int CaptchaSimbolCount { get; set; }
+        /// <summary>
+        /// Какие символы могут быть в каптче
+        /// </summary>
         public Chars CaptchaSimbols { get; set; }
-
+        /// <summary>
+        /// Цвет кнопки авторизации
+        /// </summary>
         public Color ButtonColor
         {
             get => Authorize.BackColor;
             set => Authorize.BackColor = value;
         }
-
+        /// <summary>
+        /// Плоский стиль кнопки авторизации
+        /// </summary>
         public FlatStyle ButtonFlatStyle
         {
             get => Authorize.FlatStyle;
             set => Authorize.FlatStyle = value;
         }
-
+        /// <summary>
+        /// Авторизация пользователя
+        /// При неудачной попытке появляется каптча
+        /// <para>ВНИМАНИЕ!!!</para>
+        /// 1. Не работает, если не введены параметры следующей формы и проверки подлинности логина и пароля
+        /// <para>
+        /// 2. После авторизации форма на которой был контрол скрывается (Hide()), а новая форма открывается (Show())
+        /// </para>
+        /// Советую в UserForm передавать форму, на которой находится контрол (Например: new ManagerForm(this)), затем при закрытии UserForm открывать форму с контролом (AuthForm.Show())
+        /// </summary>
         public Authorization()
         {
             InitializeComponent();

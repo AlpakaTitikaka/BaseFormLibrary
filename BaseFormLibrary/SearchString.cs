@@ -8,9 +8,17 @@ namespace BaseFormLibrary
 
     public partial class SearchString : UserControl
     {
+        /// <summary>
+        /// Происходит после того, как изменился текст в поисковой строке
+        /// </summary>
         public event SearchTextChangedHandler SearchTextChanged;
+        /// <summary>
+        /// true, если строка пустая, false, если в ней что-то есть
+        /// </summary>
         public bool IsClear { get => SearchText.Text == ""; }
-
+        /// <summary>
+        /// Поисковая строка
+        /// </summary>
         public SearchString()
         {
             InitializeComponent();
@@ -18,7 +26,14 @@ namespace BaseFormLibrary
 
         public virtual void OnSearchTextChanged(EventArgs e)
             => SearchTextChanged(this, e);
-
+        /// <summary>
+        /// Осуществляет поиск из источника, находит то, что содержит в себе поисковый запрос
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="selector"></param>
+        /// <returns>Найденные варианты</returns>
         public IEnumerable<TSource> Search<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector)
             => LibraryMethods.Find(source, selector, SearchText.Text);
 
