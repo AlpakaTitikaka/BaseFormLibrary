@@ -18,7 +18,6 @@ namespace BaseFormLibrary
         public Counter(IContainer container)
         {
             container.Add(this);
-
             InitializeComponent();
         }
 
@@ -39,12 +38,12 @@ namespace BaseFormLibrary
             f.Value = startValue;
             f.MaxValue = MaxValue;
             f.Font = Font;
-            f.Text = Text;
+            f.Text = Title;
             f.BackColor = BackColor;
             f.ForeColor = ForeColor;
-            f.SetButtonTitle = SetText;
-            f.SetCountColor = SetColor;
-            f.CancelCounterColor = CancelColor;
+            f.SetButtonTitle = ButtonSetText;
+            f.SetCountColor = ButtonSetColor;
+            f.CancelCounterColor = CancelButtonColor;
             int value = startValue;
             if (f.ShowDialog(ParentForm) == DialogResult.OK)
                 value = f.Value;
@@ -56,70 +55,76 @@ namespace BaseFormLibrary
         /// </summary>
         public int Value
         {
-            get => form.Value; set => form.Value = value;
+            get => form.Value; 
+            set => form.Value = value;
         }
         /// <summary>
         /// Максимальное начение в строке счетчика
         /// </summary>
         public int MaxValue
         {
-            get => form.MaxValue; set => form.MaxValue = value;
+            get => form.MaxValue; 
+            set => form.MaxValue = value;
         }
         /// <summary>
         /// Стиль оформления формы (шрифт, кегль и др)
         /// </summary>
         public Font Font
         {
-            get => form.Font; set => form.Font = value;
+            get => form.Font; 
+            set => form.Font = value;
         }
         /// <summary>
         /// Заголовок счетчика
         /// </summary>
-        public string Text
+        public string Title
         {
-            get => form.Title; set => form.Title = value;
+            get => form.Title; 
+            set => form.Title = value;
         }
         /// <summary>
         /// Цвет формы
         /// </summary>
         public Color BackColor
         {
-            get => form.BackColor; set => form.BackColor = value;
+            get => form.BackColor; 
+            set => form.BackColor = value;
         }
         /// <summary>
         /// Цвет надписей
         /// </summary>
         public Color ForeColor 
         { 
-            get => form.ForeColor; set => form.ForeColor = value;
+            get => form.ForeColor; 
+            set => form.ForeColor = value;
         }
         /// <summary>
         /// Надпись на кнопке установления значения
         /// </summary>
-        public string SetText
+        public string ButtonSetText
         {
-            get => form.SetButtonTitle; set => form.SetButtonTitle = value;
+            get => form.SetButtonTitle; 
+            set => form.SetButtonTitle = value;
         }
         /// <summary>
         /// Цвет кнопки установления значения
         /// </summary>
-        public Color SetColor
+        public Color ButtonSetColor
         {
-            get => form.SetCountColor; set => form.SetCountColor = value;
+            get => form.SetCountColor; 
+            set => form.SetCountColor = value;
         }
         /// <summary>
         /// Родительская форма, к которой принадлежит счетчик
         /// </summary>
-        public Form ParentForm
-        {
-            get; set;
-        }
+        public Form ParentForm { get; set; }
         /// <summary>
         /// Цвет кнопки отмены действия
         /// </summary>
-        public Color CancelColor
+        public Color CancelButtonColor
         {
-            get => form.CancelCounterColor; set => form.CancelCounterColor = value; 
+            get => form.CancelCounterColor; 
+            set => form.CancelCounterColor = value; 
         }
     }
 }

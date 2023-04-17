@@ -15,7 +15,11 @@ namespace BaseFormLibrary
         /// <summary>
         /// true, если строка пустая, false, если в ней что-то есть
         /// </summary>
-        public bool IsClear { get => SearchText.Text == ""; }
+        public bool IsClear 
+        {
+            get => SearchText.Text == ""; 
+        }
+
         /// <summary>
         /// Поисковая строка
         /// </summary>

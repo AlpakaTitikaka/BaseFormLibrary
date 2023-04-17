@@ -33,7 +33,9 @@ namespace BusinessLib.Security.Error
         private void CheckCaptcha_Click(object sender, EventArgs e) //проверка правильности введенного кода
         {
             if (Picture.Check(UserCode.Text))
+            {
                 DialogResult = DialogResult.OK;
+            }
             else
             {
                 Enabled = false;

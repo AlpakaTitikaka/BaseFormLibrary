@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace BaseFormLibrary
 {
+    // потом потрогаю
     public partial class UserOutInterface : UserControl
     {
         /// <summary>

@@ -8,11 +8,11 @@ namespace BusinessLib.Security.Error
     {
         private string text;
         private Bitmap puzzle;
-        private string digits = "1234567890";
-        private string lettersEn = "qwertyuiopasdfghjklzxcvbnm";
-        private string lettersRus = "йцукенгёшщзхъфывапролджэячсмитьбю";
-        private string letRusDig = "1йцук2енгё3шщз4хъфы5вап6рол7джэ8ячс9мить0бю";
-        private string letEnDig = "1qwe2rty3uio4pas5dfg6hjk7lzx8cvb9nm0";
+        private const string DIGITS = "1234567890";
+        private const string ENG_LETTERS = "qwertyuiopasdfghjklzxcvbnm";
+        private const string RUS_LETTERS = "йцукенгёшщзхъфывапролджэячсмитьбю";
+        private const string DIG_RUS_LETTERS = "1йцук2енгё3шщз4хъфы5вап6рол7джэ8ячс9мить0бю";
+        private const string DIG_ENG_LETTERS = "1qwe2rty3uio4pas5dfg6hjk7lzx8cvb9nm0";
 
         public Captcha(int Width, int Height, int maxValue, Chars chars)
         {
@@ -73,16 +73,16 @@ namespace BusinessLib.Security.Error
         private string SetChars(Chars chars)
         {
             if (chars == Chars.OnlyEnLetters)
-                return lettersEn;
+                return ENG_LETTERS;
             if (chars == Chars.OnlyRusLetters)
-                return lettersRus;
+                return RUS_LETTERS;
             if (chars == Chars.OnlyDigits)
-                return digits;
+                return DIGITS;
             if (chars == Chars.EnLettersDigits)
-                return letEnDig;
+                return DIG_ENG_LETTERS;
             if (chars == Chars.RusLettersDigits)
-                return letRusDig;
-            return letEnDig;
+                return DIG_RUS_LETTERS;
+            return DIG_ENG_LETTERS;
         }
 
         public void GenerateText(int maxValue, Chars chars)

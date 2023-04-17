@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace BaseFormLibrary
 {
+    // потрогать класс
     public partial class Authorization : UserControl
     {
         /// <summary>
@@ -73,7 +74,6 @@ namespace BaseFormLibrary
             incorrect = 0;
             Incorrect = 2;
         }
-
         private void Authorize_Click(object sender, EventArgs e)
         {
             if (LoginPasswordCheck.Invoke(Login.Text, Password.Text))

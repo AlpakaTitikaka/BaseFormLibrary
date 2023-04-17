@@ -12,15 +12,6 @@ namespace BaseFormLibrary
                     yield return item;
         }
 
-        public static IEnumerable<TSource> Filtering<TSource, TCategory, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector, IEnumerable<TCategory> categories, Func<TCategory, TKey> catid, Func<TCategory, TKey> cattitle, string filter)
-        {
-            foreach (var item in source)
-                foreach (var cat in categories)
-                    if (selector(item).Equals(catid(cat)))
-                        if (cattitle(cat).ToString().Equals(filter))
-                            yield return item;
-        }
-
         public static IEnumerable<TSource> Find<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector, string text)
         {
             foreach (var item in source)
@@ -30,12 +21,15 @@ namespace BaseFormLibrary
 
         public static IEnumerable<TSource> Filtering<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector, string min, string max)
         {
+            // РАССТРЕЛ НА МЕСТЕ 
             foreach (var item in source)
-                if (double.TryParse(selector(item).ToString(), out double a))
-                    if (double.TryParse(min, out double minA))
-                        if (double.TryParse(max, out double maxA))
-                            if (a >= minA && a <= maxA)
-                                yield return item;
+            {
+                if (!double.TryParse(selector(item).ToString(), out double a)) continue;
+                if (!double.TryParse(min, out double minA)) continue;
+                if (!double.TryParse(max, out double maxA)) continue;
+                if (a < minA && a > maxA) continue;
+                yield return item;
+            }
         }
     }
 }
