@@ -1,7 +1,5 @@
-﻿using BaseFormLibrary.ForFilter;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
@@ -20,21 +18,22 @@ namespace BaseFormLibrary
         public Filter()
         {
             InitializeComponent();
-            FiltersCount = FiltersCount.One;
+            FiltersCount = 1;
         }
+
         /// <summary>
         /// Событие, происходящее после изменения любых параметров фильтра
         /// </summary>
-        public event OneFilterEventHandler Changed;
+        public event OneFilterEventHandler Changed; // зачем
         /// <summary>
         /// Событие, происходящее после очистки фильтров
         /// </summary>
-        public event OneFilterEventHandler FiltersCleared;
+        public event OneFilterEventHandler FiltersCleared; // принцип YAGNI
 
         /// <summary>
         /// Надпись фильтра1
         /// </summary>
-        public string Text1 
+        public string Filter1 
         { 
             get => Title1.Text; 
             set => Title1.Text = value;
@@ -42,7 +41,7 @@ namespace BaseFormLibrary
         /// <summary>
         /// Надпись фильтра2
         /// </summary>
-        public string Text2
+        public string Filter2
         {
             get => Title3.Text;
             set => Title3.Text = value;
@@ -50,7 +49,7 @@ namespace BaseFormLibrary
         /// <summary>
         /// Надпись фильтра3
         /// </summary>
-        public string Text3
+        public string Filter3
         {
             get => Title4.Text;
             set => Title4.Text = value;
@@ -58,7 +57,7 @@ namespace BaseFormLibrary
         /// <summary>
         /// Надпись цены
         /// </summary>
-        public string Text4
+        public string Price
         {
             get => Title2.Text;
             set => Title2.Text = value;
@@ -67,14 +66,15 @@ namespace BaseFormLibrary
         /// <summary>
         /// Количество фильтров на контроле
         /// </summary>
-        public FiltersCount FiltersCount 
-        { 
-            get => Filters.GetEnum(FiltersOnPanel.Controls.OfType<Panel>().Count(p => p.Visible && p.Tag != null));
+        public int FiltersCount 
+        {
+            // чё за хуйня
+            get => FiltersOnPanel.Controls.OfType<Panel>().Count(p => p.Visible && p.Tag != null);
             set 
             {
-                FilterPanel1.Visible = value != FiltersCount.None;
-                FilterPanel2.Visible = value == FiltersCount.Two || value == FiltersCount.Three;
-                FilterPanel3.Visible = value == FiltersCount.Three;
+                FilterPanel1.Visible = value > 0;
+                FilterPanel2.Visible = value > 1;
+                FilterPanel3.Visible = value > 2;
                 resize();
             } 
         }
@@ -82,22 +82,22 @@ namespace BaseFormLibrary
         /// <summary>
         /// Добавить цену (фильтр с промежутком)
         /// </summary>
-        public bool AddPrice
+        public bool isCheckPrice
         {
             get => PricePanel.Visible;
             set => PricePanel.Visible = value;
         }
 
-        private string Min { get; set; }
-        private string Max { get; set; }
 
         /// <summary>
         /// Значение минимальной цены (или наименьшего промежутка)
         /// </summary>
         public string MinPrice 
         {
+            // Поле и свойство цены должно быть связано. Но в этом случае   
             get => MinPriceString.Text;
-            set => MinPriceString.Text = value;
+            set => MinPriceString.Text = value; 
+
         }
         /// <summary>
         /// Значение максимальной цены (или наибольшего промежутка)
@@ -106,6 +106,7 @@ namespace BaseFormLibrary
         {
             get => MaxPriceString.Text;
             set => MaxPriceString.Text = value;
+            
         }
 
         /// <summary>
@@ -126,22 +127,16 @@ namespace BaseFormLibrary
             set => ClearFilters.FlatStyle = value;
         }
 
-        private object SelectedFilter1 { get => Filters1.SelectedIndex != -1 ? Filters1.SelectedItem : null; }
-        private object SelectedFilter2 { get => Filters2.SelectedIndex != -1 ? Filters2.SelectedItem : null; }
-        private object SelectedFilter3 { get => Filters3.SelectedIndex != -1 ? Filters3.SelectedItem : null; }
+        // читай описание SelectedItem
+        // private object SelectedFilter1 { get => Filters1.SelectedItem; }
 
         private void ClearFilters_Click(object sender, EventArgs e)
         {
-            if (AddPrice)
-            {
-                MinPrice = Min;
-                MaxPrice = Max;
-            }
-            if (SelectedFilter1 != null)
+            if (Filters1.SelectedItem != null)
                 Filters1.SelectedIndex = -1;
-            if (SelectedFilter2 != null)
+            if (Filters2.SelectedItem != null)
                 Filters2.SelectedIndex = -1;
-            if (SelectedFilter3 != null)
+            if (Filters3.SelectedItem != null)
                 Filters3.SelectedIndex = -1;
             OnFiltersCleared(sender, e);
         }
@@ -151,6 +146,9 @@ namespace BaseFormLibrary
 
         protected virtual void OnFiltersCleared(object sender, EventArgs e)
             => FiltersCleared(sender, e);
+
+
+        // сделаю неогриниченное кол-во фильтров, пока пусть будет как есть
 
         /// <summary>
         /// Добавление одного фильтра в фильтр1 (только в него)
@@ -181,16 +179,15 @@ namespace BaseFormLibrary
             AddFilters(filters1, filters2);
             Filters3.Items.AddRange(filters3);
         }
+
         /// <summary>
         /// Устанавливает нижнюю и верхнюю границу (минимальную и максимальную) промежутка (цены) 
         /// <para>Строковое представление минимальной и максимальной цены</para>
         /// </summary>
         public void SetMinMax(string min, string max)
         {
-            Min = min;
-            Max = max;
-            MinPrice = Min;
-            MaxPrice = Max;
+            MinPrice = min;
+            MaxPrice = max;
         }
         /// <summary>
         /// Фильтрация источника по одному единственному фильтру1 и цене
@@ -202,16 +199,16 @@ namespace BaseFormLibrary
         /// </summary>
         /// <typeparam name="TSource">Тип источника</typeparam>
         /// <typeparam name="TKey">Ключ источника</typeparam>
-        /// <typeparam name="TPrice">Ключ источника цены</typeparam>
         /// <param name="source">Источник</param>
         /// <param name="filter">Ключ фильтра</param>
         /// <param name="price">Ключ цены</param>
         /// <returns>Отфильтрованный источник</returns>
-        public IEnumerable<TSource> Filtering<TSource, TKey, TPrice>(IEnumerable<TSource> source, Func<TSource, TKey> filter, Func<TSource, TPrice> price)
+        public IEnumerable<TSource> Filtering<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> filter, Func<TSource, TKey> price)
         {
+            // не забыть доработать допфильтры
             IEnumerable<TSource> result = FilterByPrice(source, price);
-            if (SelectedFilter1 != null)
-                result = LibraryMethods.Filtering(FilterByPrice(source, price), filter, (string)SelectedFilter1);
+            if (Filters1.SelectedItem != null)
+                result = LibraryMethods.Filtering(result, filter, Filters1.SelectedItem.ToString());
             return result;
         }
         /// <summary>
@@ -223,19 +220,17 @@ namespace BaseFormLibrary
         /// </example>
         /// </summary>
         /// <typeparam name="TSource">Тип источника</typeparam>
-        /// <typeparam name="TFilter1">Ключ источника для фильтра1</typeparam>
-        /// <typeparam name="TFilter1">Ключ источника для фильтра2</typeparam>
-        /// <typeparam name="TPrice">Ключ источника цены</typeparam>
+        /// <typeparam name="TKey">Ключ источника</typeparam>
         /// <param name="source">Источник</param>
         /// <param name="filter1">Ключ первого фильтра</param>
         /// <param name="filter2">Ключ второго фильтра</param>
         /// <param name="price">Ключ цены</param>
         /// <returns>Отфильтрованный источник</returns>
-        public IEnumerable<TSource> Filtering<TSource, TFilter1, TFilter2, TPrice>(IEnumerable<TSource> source, Func<TSource, TFilter1> filter1, Func<TSource, TFilter2> filter2, Func<TSource, TPrice> price)
+        public IEnumerable<TSource> Filtering<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> filter1, Func<TSource, TKey> filter2, Func<TSource, TKey> price)
         {
             IEnumerable<TSource> result = Filtering(source, filter1, price);
-            if (SelectedFilter2 != null)
-                result = LibraryMethods.Filtering(result, filter2, (string)SelectedFilter2);
+            if (Filters2.SelectedItem != null)
+                result = LibraryMethods.Filtering(result, filter2, Filters2.SelectedItem.ToString());
             return result;
         }
         /// <summary>
@@ -247,27 +242,24 @@ namespace BaseFormLibrary
         /// </example>
         /// </summary>
         /// <typeparam name="TSource">Тип источника</typeparam>
-        /// <typeparam name="TFilter1">Ключ источника для фильтра1</typeparam>
-        /// <typeparam name="TFilter2">Ключ источника для фильтра2</typeparam>
-        /// <typeparam name="TFilter3">Ключ источника для фильтра3</typeparam>
-        /// <typeparam name="TPrice">Ключ источника цены</typeparam>
+        /// <typeparam name="TKey">Ключ источника</typeparam>
         /// <param name="source">Источник</param>
         /// <param name="filter1">Ключ первого фильтра</param>
         /// <param name="filter2">Ключ второго фильтра</param>
         /// <param name="filter3">Ключ третьего фильтра</param>
         /// <param name="price">Ключ цены</param>
         /// <returns>Отфильтрованный источник</returns>
-        public IEnumerable<TSource> Filtering<TSource, TFilter1, TFilter2, TFilter3, TPrice>(IEnumerable<TSource> source, Func<TSource, TFilter1> filter1, Func<TSource, TFilter2> filter2, Func<TSource, TFilter3> filter3, Func<TSource, TPrice> price)
+        public IEnumerable<TSource> Filtering<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> filter1, Func<TSource, TKey> filter2, Func<TSource, TKey> filter3, Func<TSource, TKey> price)
         {
             IEnumerable<TSource> result = Filtering(source, filter1, filter2, price);
-            if (SelectedFilter3 != null)
-                result = LibraryMethods.Filtering(result, filter3, (string)SelectedFilter3);
+            if (Filters3.SelectedItem != null)
+                result = LibraryMethods.Filtering(result, filter3, Filters3.SelectedItem.ToString());
             return result;
         }
 
-        private IEnumerable<TSource> FilterByPrice<TSource, TPrice>(IEnumerable<TSource> source, Func<TSource, TPrice> selector)
+        private IEnumerable<TSource> FilterByPrice<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector)
         { 
-            if (AddPrice)
+            if (isCheckPrice)
                 return LibraryMethods.Filtering(source, selector, MinPrice, MaxPrice);
             return source;
         }
