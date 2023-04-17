@@ -12,6 +12,15 @@ namespace BaseFormLibrary
                     yield return item;
         }
 
+        public static IEnumerable<TSource> Filtering<TSource, TCategory, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector, IEnumerable<TCategory> categories, Func<TCategory, TKey> catid, Func<TCategory, TKey> cattitle, string filter)
+        {
+            foreach (var item in source)
+                foreach (var cat in categories)
+                    if (selector(item).Equals(catid(cat)))
+                        if (cattitle(cat).ToString().Equals(filter))
+                            yield return item;
+        }
+
         public static IEnumerable<TSource> Find<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector, string text)
         {
             foreach (var item in source)
