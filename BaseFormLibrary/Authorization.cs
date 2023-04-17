@@ -27,7 +27,7 @@ namespace BaseFormLibrary
         /// </summary>
         public Func<string, string, bool> LoginPasswordCheck;
         /// <summary>
-        /// Количество неверный попыток
+        /// Количество неверных попыток
         /// </summary>
         public int Incorrect { get; set; }
         private int incorrect { get; set; }
