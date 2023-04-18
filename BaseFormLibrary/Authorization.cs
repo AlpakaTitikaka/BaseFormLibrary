@@ -22,7 +22,7 @@ namespace BaseFormLibrary
         /// Функция проверки логина и пароля
         /// <example>
         /// <code>
-        ///     authorization1.LoginPasswordCheck = Session.Start;
+        ///     authorization1.LoginPasswordCheck = Session.Login;
         /// </code>
         /// </example>
         /// </summary>
@@ -31,7 +31,7 @@ namespace BaseFormLibrary
         /// Количество неверных попыток
         /// </summary>
         public int Incorrect { get; set; }
-        private int incorrect { get; set; }
+        private int nowIncorrectCount { get; set; }
         /// <summary>
         /// Количество символов в каптче
         /// </summary>
@@ -71,14 +71,14 @@ namespace BaseFormLibrary
             InitializeComponent();
             CaptchaSimbolCount = 3;
             CaptchaSimbols = Chars.Any;
-            incorrect = 0;
+            nowIncorrectCount = 0;
             Incorrect = 2;
         }
         private void Authorize_Click(object sender, EventArgs e)
         {
             if (LoginPasswordCheck.Invoke(Login.Text, Password.Text))
             {
-                incorrect = 0;
+                nowIncorrectCount = 0;
                 Login.Text = "";
                 Password.Text = "";
                 PasswordVisibility.Checked = false;
@@ -87,9 +87,9 @@ namespace BaseFormLibrary
             }
             else
             {
-                incorrect++;
+                nowIncorrectCount++;
                 MessageBox.Show("Неверный логин или пароль");
-                if (Incorrect == incorrect)
+                if (Incorrect == nowIncorrectCount)
                     using (CheckUser check = new CheckUser(CaptchaSimbolCount, CaptchaSimbols))
                         if (check.ShowDialog(this) == DialogResult.OK)
                             check.Dispose();

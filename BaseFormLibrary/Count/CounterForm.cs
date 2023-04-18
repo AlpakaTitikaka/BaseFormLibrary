@@ -38,6 +38,11 @@ namespace BaseFormLibrary.Count
             get => (int)CountNumber.Value;
             set => CountNumber.Value = value;
         }
-        public int MaxValue { get => (int)CountNumber.Maximum; set => CountNumber.Maximum = value; }
+        public int MaxValue 
+        { 
+            get => (int)CountNumber.Maximum; 
+            set => CountNumber.Maximum = value; 
+        }
+
     }
 }
