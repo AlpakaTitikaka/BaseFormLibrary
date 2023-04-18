@@ -287,8 +287,8 @@ namespace BaseFormLibrary
         private void Filter_FontChanged(object sender, EventArgs e)
         {
             FiltersOnPanel.Font = Font;
-            label4.Size = new Size
-                (MinPriceString.Width + MaxPriceString.Width + MaxPriceString.Location.X - MinPriceString.Location.X - MinPriceString.Width + 1, MaxPriceString.Height);
+            label4.Size = new Size (MinPriceString.Width + MaxPriceString.Width + MaxPriceString.Location.X - MinPriceString.Location.X 
+                                    - MinPriceString.Width + 1, MaxPriceString.Height);
             label4.Location = MinPriceString.Location;
             resize();
         }

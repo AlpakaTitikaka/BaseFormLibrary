@@ -50,10 +50,14 @@ namespace BaseFormLibrary
             SearchText.Location = new System.Drawing.Point(SearchText.Location.X, (Height - SearchText.Height) / 2);
         }
 
+        private void ResizeControls()
+        {
+
+        }
+
         private void SearchString_FontChanged(object sender, EventArgs e)
         {
-            label1.Font = Font;
-            SearchText.Font = Font;
+            ResizeControls();
             CenterControls();
         }
 

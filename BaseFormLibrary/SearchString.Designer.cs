@@ -34,6 +34,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
@@ -43,6 +46,9 @@
             // 
             // SearchText
             // 
+            this.SearchText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchText.Location = new System.Drawing.Point(48, 2);
             this.SearchText.Name = "SearchText";
             this.SearchText.Size = new System.Drawing.Size(386, 20);
@@ -59,7 +65,7 @@
             this.Name = "SearchString";
             this.Size = new System.Drawing.Size(437, 24);
             this.FontChanged += new System.EventHandler(this.SearchString_FontChanged);
-            this.SizeChanged += new System.EventHandler(this.SearchString_SizeChanged);
+            this.SizeChanged += new System.EventHandler(this.SearchString_FontChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
