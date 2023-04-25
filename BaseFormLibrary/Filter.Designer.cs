@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.MaxPriceString = new System.Windows.Forms.TextBox();
-            this.MinPriceString = new System.Windows.Forms.TextBox();
             this.Title2 = new System.Windows.Forms.Label();
             this.ClearFilters = new System.Windows.Forms.Button();
             this.Title1 = new System.Windows.Forms.Label();
@@ -44,6 +42,8 @@
             this.FilterPanel2 = new System.Windows.Forms.Panel();
             this.Filters2 = new System.Windows.Forms.ComboBox();
             this.Title3 = new System.Windows.Forms.Label();
+            this.MinPriceBox = new BaseFormLibrary.NumberBox();
+            this.MaxPriceBox = new BaseFormLibrary.NumberBox();
             this.PricePanel.SuspendLayout();
             this.FiltersOnPanel.SuspendLayout();
             this.FilterPanel3.SuspendLayout();
@@ -62,28 +62,6 @@
             this.label4.Text = "-";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MaxPriceString
-            // 
-            this.MaxPriceString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MaxPriceString.Location = new System.Drawing.Point(115, 19);
-            this.MaxPriceString.Margin = new System.Windows.Forms.Padding(2);
-            this.MaxPriceString.Name = "MaxPriceString";
-            this.MaxPriceString.Size = new System.Drawing.Size(80, 20);
-            this.MaxPriceString.TabIndex = 11;
-            this.MaxPriceString.TextChanged += new System.EventHandler(this.MinPriceString_TextChanged);
-            // 
-            // MinPriceString
-            // 
-            this.MinPriceString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.MinPriceString.Location = new System.Drawing.Point(4, 19);
-            this.MinPriceString.Margin = new System.Windows.Forms.Padding(2);
-            this.MinPriceString.Name = "MinPriceString";
-            this.MinPriceString.Size = new System.Drawing.Size(80, 20);
-            this.MinPriceString.TabIndex = 10;
-            this.MinPriceString.TextChanged += new System.EventHandler(this.MinPriceString_TextChanged);
-            // 
             // Title2
             // 
             this.Title2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -100,7 +78,7 @@
             // 
             this.ClearFilters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearFilters.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClearFilters.Location = new System.Drawing.Point(2, 201);
+            this.ClearFilters.Location = new System.Drawing.Point(2, 195);
             this.ClearFilters.Margin = new System.Windows.Forms.Padding(2);
             this.ClearFilters.Name = "ClearFilters";
             this.ClearFilters.Size = new System.Drawing.Size(199, 30);
@@ -136,14 +114,14 @@
             // 
             this.PricePanel.AutoSize = true;
             this.PricePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.PricePanel.Controls.Add(this.MinPriceString);
-            this.PricePanel.Controls.Add(this.MaxPriceString);
+            this.PricePanel.Controls.Add(this.MaxPriceBox);
+            this.PricePanel.Controls.Add(this.MinPriceBox);
             this.PricePanel.Controls.Add(this.Title2);
             this.PricePanel.Controls.Add(this.label4);
             this.PricePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PricePanel.Location = new System.Drawing.Point(3, 150);
             this.PricePanel.Name = "PricePanel";
-            this.PricePanel.Size = new System.Drawing.Size(197, 46);
+            this.PricePanel.Size = new System.Drawing.Size(197, 40);
             this.PricePanel.TabIndex = 15;
             this.PricePanel.VisibleChanged += new System.EventHandler(this.PricePanel_VisibleChanged);
             // 
@@ -168,7 +146,7 @@
             this.FiltersOnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.FiltersOnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.FiltersOnPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.FiltersOnPanel.Size = new System.Drawing.Size(203, 233);
+            this.FiltersOnPanel.Size = new System.Drawing.Size(203, 227);
             this.FiltersOnPanel.TabIndex = 16;
             // 
             // FilterPanel3
@@ -256,6 +234,28 @@
             this.Title3.TabIndex = 13;
             this.Title3.Text = "Фильтр2";
             // 
+            // MinPriceBox
+            // 
+            this.MinPriceBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.MinPriceBox.Location = new System.Drawing.Point(4, 19);
+            this.MinPriceBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MinPriceBox.Name = "MinPriceBox";
+            this.MinPriceBox.Numbers = -1;
+            this.MinPriceBox.Size = new System.Drawing.Size(80, 20);
+            this.MinPriceBox.TabIndex = 13;
+            // 
+            // MaxPriceBox
+            // 
+            this.MaxPriceBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.MaxPriceBox.Location = new System.Drawing.Point(115, 19);
+            this.MaxPriceBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MaxPriceBox.Name = "MaxPriceBox";
+            this.MaxPriceBox.Numbers = -1;
+            this.MaxPriceBox.Size = new System.Drawing.Size(80, 20);
+            this.MaxPriceBox.TabIndex = 14;
+            // 
             // Filter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,8 +287,6 @@
         private System.Windows.Forms.Button ClearFilters;
         private System.Windows.Forms.Label Title1;
         private System.Windows.Forms.ComboBox Filters1;
-        private System.Windows.Forms.TextBox MaxPriceString;
-        private System.Windows.Forms.TextBox MinPriceString;
         private System.Windows.Forms.Panel PricePanel;
         private System.Windows.Forms.TableLayoutPanel FiltersOnPanel;
         private System.Windows.Forms.Panel FilterPanel1;
@@ -298,5 +296,7 @@
         private System.Windows.Forms.ComboBox Filters2;
         private System.Windows.Forms.Label Title3;
         private System.Windows.Forms.Panel FilterPanel3;
+        private NumberBox MaxPriceBox;
+        private NumberBox MinPriceBox;
     }
 }

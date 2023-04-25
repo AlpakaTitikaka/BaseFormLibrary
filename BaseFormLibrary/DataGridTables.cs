@@ -11,7 +11,7 @@ namespace BaseFormLibrary
     /// Класс модели базы данных, который используется в таблице, обязательно должен быть наследован от IDataGridSerializable.
     /// !!! ДЛЯ РАБОТЫ РЕДАКТИРОВАНИЯ названия полей классов и названия столбцов должны быть одинаковые !!!
     /// </summary>
-    internal class DataGridTables<T, K> 
+    internal class DataGridTables<T, K>
         where T : IDataGridSerializable 
         where K : DbContext
     {
@@ -26,7 +26,7 @@ namespace BaseFormLibrary
         public void AddRow(DataGridViewCell cell)  {
             using (K db = Activator.CreateInstance<K>())
             {
-                T obj = Activator.CreateInstance<T>();
+                var obj = Activator.CreateInstance<T>();
                 db.Set(typeof(T)).Add(obj);
                 db.SaveChanges();
                 cell.Value = obj.GetId();
@@ -89,5 +89,7 @@ namespace BaseFormLibrary
                 db.SaveChanges();
             }
         }
+
+        
     }
 }

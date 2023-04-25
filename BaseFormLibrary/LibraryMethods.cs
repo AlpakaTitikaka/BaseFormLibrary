@@ -19,14 +19,13 @@ namespace BaseFormLibrary
                     yield return item;
         }
 
-        public static IEnumerable<TSource> Filtering<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector, string min, string max)
+        public static IEnumerable<TSource> Filtering<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector, int min, int max)
         {
             foreach (var item in source)
             {
                 if (!double.TryParse(selector(item).ToString(), out double a)) continue;
-                if (!double.TryParse(min, out double minA)) continue;
-                if (!double.TryParse(max, out double maxA)) continue;
-                if (a >= minA && a <= maxA)
+                if (min > -1 && max >= min) continue;
+                if (a >= min && a <= max)
                 {
                     yield return item;
                 }

@@ -93,20 +93,20 @@ namespace BaseFormLibrary
         /// <summary>
         /// Значение минимальной цены (или наименьшего промежутка)
         /// </summary>
-        public string MinPrice 
+        public int MinPrice 
         {
             // Поле и свойство цены должно быть связано. Но в этом случае   
-            get => MinPriceString.Text;
-            set => MinPriceString.Text = value; 
+            get => MinPriceBox.Numbers;
+            set => MinPriceBox.Numbers = value; 
 
         }
         /// <summary>
         /// Значение максимальной цены (или наибольшего промежутка)
         /// </summary>
-        public string MaxPrice 
+        public int MaxPrice 
         {
-            get => MaxPriceString.Text;
-            set => MaxPriceString.Text = value;
+            get => MaxPriceBox.Numbers;
+            set => MaxPriceBox.Numbers = value;
             
         }
 
@@ -183,7 +183,7 @@ namespace BaseFormLibrary
         /// Устанавливает нижнюю и верхнюю границу (минимальную и максимальную) промежутка (цены) 
         /// <para>Строковое представление минимальной и максимальной цены</para>
         /// </summary>
-        public void SetMinMax(string min, string max)
+        public void SetMinMax(int min, int max)
         {
             MinPrice = min;
             MaxPrice = max;
@@ -287,9 +287,9 @@ namespace BaseFormLibrary
         private void Filter_FontChanged(object sender, EventArgs e)
         {
             FiltersOnPanel.Font = Font;
-            label4.Size = new Size (MinPriceString.Width + MaxPriceString.Width + MaxPriceString.Location.X - MinPriceString.Location.X 
-                                    - MinPriceString.Width + 1, MaxPriceString.Height);
-            label4.Location = MinPriceString.Location;
+            label4.Size = new Size (MinPriceBox.Width + MaxPriceBox.Width + MaxPriceBox.Location.X - MinPriceBox.Location.X 
+                                    - MinPriceBox.Width + 1, MaxPriceBox.Height);
+            label4.Location = MinPriceBox.Location;
             resize();
         }
     }
