@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BaseFormLibrary
 {
-    public partial class NumberBox : TextBox
+    public partial class NumberBox: UserControl
     {
+        public NumberBox()
+        {
+            InitializeComponent();
+        }
 
         private int numbers = -1;
 
@@ -22,7 +28,7 @@ namespace BaseFormLibrary
             set
             {
                 numbers = value;
-                if (value == -1) 
+                if (value == -1)
                 {
                     base.Text = "";
                     return;
@@ -30,20 +36,15 @@ namespace BaseFormLibrary
                 base.Text = value.ToString();
             }
         }
-        public override string Text 
-        { 
-            get => base.Text; 
+
+        public override string Text
+        {
+            get => NumberText.Text;
             set => Numbers = int.Parse(value);
         }
 
-        public NumberBox() : base()
+        private void NumberText_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        protected override void OnKeyPress(KeyPressEventArgs e)
-        {
-            base.OnKeyPress(e);
             e.Handled = !(char.IsDigit(e.KeyChar) || (Convert.ToInt32(e.KeyChar) == 8));
         }
     }

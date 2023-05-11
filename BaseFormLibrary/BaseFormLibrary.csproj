@@ -89,7 +89,7 @@
       <DependentUpon>Filter.cs</DependentUpon>
     </Compile>
     <Compile Include="NumberBox.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="NumberBox.Designer.cs">
       <DependentUpon>NumberBox.cs</DependentUpon>
@@ -134,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Filter.resx">
       <DependentUpon>Filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumberBox.resx">
+      <DependentUpon>NumberBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchString.resx">
       <DependentUpon>SearchString.cs</DependentUpon>

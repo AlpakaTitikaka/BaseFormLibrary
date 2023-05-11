@@ -1,4 +1,6 @@
-﻿namespace BaseFormLibrary
+﻿using System.Windows.Forms;
+
+namespace BaseFormLibrary
 {
     partial class Filter
     {
