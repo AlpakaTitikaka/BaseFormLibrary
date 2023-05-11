@@ -18,7 +18,9 @@ namespace BaseFormLibrary
         }
 
         private int numbers = -1;
-
+        /// <summary>
+        /// Число, хранящееся в элементе
+        /// </summary>
         public int Numbers
         {
             get
@@ -36,7 +38,9 @@ namespace BaseFormLibrary
                 base.Text = value.ToString();
             }
         }
-
+        /// <summary>
+        /// Установление числа в элемент
+        /// </summary>
         public override string Text
         {
             get => NumberText.Text;

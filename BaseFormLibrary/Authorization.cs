@@ -10,19 +10,41 @@ namespace BaseFormLibrary
     public partial class Authorization : UserControl
     {
         /// <summary>
-        /// Форма, на которую осуществляется переход после удачной авторизации
+        /// Функция выбора формы для переключения
         /// <example>
         /// <code>
-        ///     authorization1.UserForm = new ManagerForm(this);
+        ///     authorization1.SelectForm = SelectUserForm;
+        /// </code>
+        /// </example>
+        /// SelectUserForm может иметь такой вид метода
+        /// <example>
+        /// <code>
+        ///     Form SelectUserForm ()
+        ///     {
+        ///         if (Session.User.Rang == 1)
+        ///             return Form1;
+        ///         if (Session.User.Rang == 2)
+        ///             return Form2;
+        ///         return Form3;
+        ///     }
+        /// </code>
+        /// </example>
+        /// Если только одна форма, то
+        /// <example>
+        /// <code>
+        ///     Form SelectUserForm ()
+        ///     {
+        ///         return Form1;
+        ///     }
         /// </code>
         /// </example>
         /// </summary>
-        public Form UserForm { get; set; }
+        public Func<Form> SelectForm { get; set; }
         /// <summary>
         /// Функция проверки логина и пароля
         /// <example>
         /// <code>
-        ///     authorization1.LoginPasswordCheck = Session.Login;
+        ///     authorization1.LoginPasswordCheck = Session.Start;
         /// </code>
         /// </example>
         /// </summary>
@@ -83,7 +105,7 @@ namespace BaseFormLibrary
                 Password.Text = "";
                 PasswordVisibility.Checked = false;
                 ParentForm.Hide();
-                UserForm.Show();
+                SelectForm.Invoke().Show();
             }
             else
             {
