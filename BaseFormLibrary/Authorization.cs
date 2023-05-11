@@ -22,10 +22,10 @@ namespace BaseFormLibrary
         ///     Form SelectUserForm ()
         ///     {
         ///         if (Session.User.Rang == 1)
-        ///             return Form1;
+        ///             return new Form1;
         ///         if (Session.User.Rang == 2)
-        ///             return Form2;
-        ///         return Form3;
+        ///             return new Form2;
+        ///         return new Form3;
         ///     }
         /// </code>
         /// </example>
@@ -34,7 +34,7 @@ namespace BaseFormLibrary
         /// <code>
         ///     Form SelectUserForm ()
         ///     {
-        ///         return Form1;
+        ///         return new Form1;
         ///     }
         /// </code>
         /// </example>
