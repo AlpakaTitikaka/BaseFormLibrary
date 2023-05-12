@@ -114,7 +114,10 @@ namespace BaseFormLibrary
                 if (Incorrect == nowIncorrectCount)
                     using (CheckUser check = new CheckUser(CaptchaSimbolCount, CaptchaSimbols))
                         if (check.ShowDialog(this) == DialogResult.OK)
+                        { 
                             check.Dispose();
+                            nowIncorrectCount = 0;
+                        }
             }
         }
 
