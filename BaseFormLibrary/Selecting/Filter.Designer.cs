@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.Selecting
 {
     partial class Filter
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.DataGridView
 {
     /// <summary>
     /// Класс, предоставляющий готовые методы для добавления, удаления и редактирования DataGridView данных.

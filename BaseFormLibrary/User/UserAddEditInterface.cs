@@ -2,9 +2,11 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.User
 {
-    // потом потрогаю
+    /// <summary>
+    /// Контрол, который может выводить информацию о клиенте, а также дает возможность изменять ее
+    /// </summary>
     public partial class UserAddEditInterface : UserControl
     {
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.Numbers
 {
     partial class NumberBox
     {

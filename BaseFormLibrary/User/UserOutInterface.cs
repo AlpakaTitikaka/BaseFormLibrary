@@ -1,10 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.User
 {
-    // потом потрогаю
+    /// <summary>
+    /// Контрол, который может выводить информацию о клиенте без возможности ее редактирования (в запущенной программе)
+    /// </summary>
     public partial class UserOutInterface : UserControl
     {
         /// <summary>

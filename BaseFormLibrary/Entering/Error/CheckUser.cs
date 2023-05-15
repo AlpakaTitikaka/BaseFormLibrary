@@ -1,11 +1,18 @@
-﻿using BaseFormLibrary.Error;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
-namespace BusinessLib.Security.Error
+namespace BaseFormLibrary.Entering.Error
 {
+    /// <summary>
+    /// Проверка пользователя с помощью каптчи
+    /// </summary>
     public partial class CheckUser : Form
     {
+        /// <summary>
+        /// Проверка пользователя с помощью каптчи
+        /// </summary>
+        /// <param name="simbolCount">Количество символов в каптче</param>
+        /// <param name="chars">Тип символов в каптче</param>
         public CheckUser(int simbolCount, Chars chars)
         {
             InitializeComponent();

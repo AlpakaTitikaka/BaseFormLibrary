@@ -1,9 +1,11 @@
-﻿using BaseFormLibrary.Error;
-using System;
+﻿using System;
 using System.Drawing;
 
-namespace BusinessLib.Security.Error
+namespace BaseFormLibrary.Entering.Error
 {
+    /// <summary>
+    /// Каптча
+    /// </summary>
     public class Captcha
     {
         private string text;
@@ -14,6 +16,9 @@ namespace BusinessLib.Security.Error
         private const string DIG_RUS_LETTERS = "1йцук2енгё3шщз4хъфы5вап6рол7джэ8ячс9мить0бю";
         private const string DIG_ENG_LETTERS = "1qwe2rty3uio4pas5dfg6hjk7lzx8cvb9nm0";
 
+        /// <summary>
+        /// Каптча
+        /// </summary>
         public Captcha(int Width, int Height, int maxValue, Chars chars)
         {
             puzzle = new Bitmap(Width, Height);
@@ -65,9 +70,16 @@ namespace BusinessLib.Security.Error
                     if (random.Next() % 20 == 0)
                         puzzle.SetPixel(x, y, Color.Aqua);
         }
-
+        /// <summary>
+        /// Получить изображение каптчи
+        /// </summary>
+        /// <returns>Каптча</returns>
         public Bitmap Get() => puzzle;
-
+        /// <summary>
+        /// Проверка верности введенного кода с картинки
+        /// </summary>
+        /// <param name="answer">Ответ</param>
+        /// <returns>Верно ли введена каптча</returns>
         public bool Check(string answer) => text.Equals(answer);
 
         private string SetChars(Chars chars)
@@ -84,7 +96,11 @@ namespace BusinessLib.Security.Error
                 return DIG_RUS_LETTERS;
             return DIG_ENG_LETTERS;
         }
-
+        /// <summary>
+        /// Генерация текста на каптче
+        /// </summary>
+        /// <param name="maxValue">Максимальное количество символов</param>
+        /// <param name="chars">Какие символы будут использоваться</param>
         public void GenerateText(int maxValue, Chars chars)
         {
             Random random = new Random();

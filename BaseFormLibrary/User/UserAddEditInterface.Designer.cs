@@ -1,4 +1,4 @@
-﻿namespace BaseFormLibrary
+﻿namespace BaseFormLibrary.User
 {
     partial class UserAddEditInterface
     {

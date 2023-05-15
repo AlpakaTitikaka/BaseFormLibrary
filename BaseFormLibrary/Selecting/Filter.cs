@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.Selecting
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public delegate void OneFilterEventHandler(object sender, EventArgs e);
 
+    /// <summary>
+    /// Фильтрует источник данных, по заданным параметрам (по умолчанию один фильтр, промежуток цены и кнопка очистки фильтров)
+    /// </summary>
     public partial class Filter : UserControl
     {
         /// <summary>
@@ -24,11 +28,11 @@ namespace BaseFormLibrary
         /// <summary>
         /// Событие, происходящее после изменения любых параметров фильтра
         /// </summary>
-        public event OneFilterEventHandler Changed; // зачем
+        protected event OneFilterEventHandler Changed; // зачем
         /// <summary>
         /// Событие, происходящее после очистки фильтров
         /// </summary>
-        public event OneFilterEventHandler FiltersCleared; // принцип YAGNI
+        protected event OneFilterEventHandler FiltersCleared; // принцип YAGNI
 
         /// <summary>
         /// Надпись фильтра1
@@ -138,10 +142,14 @@ namespace BaseFormLibrary
                 Filters3.SelectedIndex = -1;
             OnFiltersCleared(sender, e);
         }
-
+        /// <summary>
+        /// Событие, возникающее после любых изменений в параметрах фильтров
+        /// </summary>
         protected virtual void OnChanged(object sender, EventArgs e)
             => Changed(sender, e);
-
+        /// <summary>
+        /// Событие, возникающее после очистки фильтров
+        /// </summary>
         protected virtual void OnFiltersCleared(object sender, EventArgs e)
             => FiltersCleared(sender, e);
 
@@ -208,7 +216,7 @@ namespace BaseFormLibrary
             // не забыть доработать допфильтры
             IEnumerable<TSource> result = FilterByPrice(source, price);
             if (Filters1.SelectedItem != null)
-                result = LibraryMethods.Filtering(result, filter, Filters1.SelectedItem.ToString());
+                result = Data.Filtering(result, filter, Filters1.SelectedItem.ToString());
             return result;
         }
         /// <summary>
@@ -232,7 +240,7 @@ namespace BaseFormLibrary
         {
             IEnumerable<TSource> result = Filtering(source, filter1, price);
             if (Filters2.SelectedItem != null)
-                result = LibraryMethods.Filtering(result, filter2, Filters2.SelectedItem.ToString());
+                result = Data.Filtering(result, filter2, Filters2.SelectedItem.ToString());
             return result;
         }
         /// <summary>
@@ -258,14 +266,14 @@ namespace BaseFormLibrary
         {
             IEnumerable<TSource> result = Filtering(source, filter1, filter2, price);
             if (Filters3.SelectedItem != null)
-                result = LibraryMethods.Filtering(result, filter3, Filters3.SelectedItem.ToString());
+                result = Data.Filtering(result, filter3, Filters3.SelectedItem.ToString());
             return result;
         }
 
         private IEnumerable<TSource> FilterByPrice<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector)
         { 
             if (isCheckPrice)
-                return LibraryMethods.Filtering(source, selector, MinPrice, MaxPrice);
+                return Data.Filtering(source, selector, MinPrice, MaxPrice);
             return source;
         }
 

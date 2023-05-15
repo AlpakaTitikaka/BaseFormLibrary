@@ -1,12 +1,13 @@
-﻿using BaseFormLibrary.Error;
-using BusinessLib.Security.Error;
+﻿using BaseFormLibrary.Entering.Error;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.Entering
 {
-    // потрогать класс
+    /// <summary>
+    /// Создание авторизации пользователей
+    /// </summary>
     public partial class Authorization : UserControl
     {
         /// <summary>
@@ -79,14 +80,7 @@ namespace BaseFormLibrary
             set => Authorize.FlatStyle = value;
         }
         /// <summary>
-        /// Авторизация пользователя
-        /// При неудачной попытке появляется каптча
-        /// <para>ВНИМАНИЕ!!!</para>
-        /// 1. Не работает, если не введены параметры следующей формы и проверки подлинности логина и пароля
-        /// <para>
-        /// 2. После авторизации форма на которой был контрол скрывается (Hide()), а новая форма открывается (Show())
-        /// </para>
-        /// Советую в UserForm передавать форму, на которой находится контрол (Например: new ManagerForm(this)), затем при закрытии UserForm открывать форму с контролом (AuthForm.Show())
+        /// Создание авторизации пользователей
         /// </summary>
         public Authorization()
         {

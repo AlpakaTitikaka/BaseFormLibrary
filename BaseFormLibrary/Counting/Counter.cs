@@ -3,8 +3,11 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.Counting
 {
+    /// <summary>
+    /// Компонент, который открывает форму-счетчик для получения значения
+    /// </summary>
     public partial class Counter : Component
     {
         /// <summary>
@@ -15,6 +18,9 @@ namespace BaseFormLibrary
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Компонент, который открывает форму-счетчик для получения значения
+        /// </summary>
         public Counter(IContainer container)
         {
             container.Add(this);

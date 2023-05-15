@@ -1,4 +1,4 @@
-﻿namespace BaseFormLibrary
+﻿namespace BaseFormLibrary.Counting
 {
     partial class Counter
     {

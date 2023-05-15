@@ -1,4 +1,4 @@
-﻿namespace BusinessLib.Security.Error
+﻿namespace BaseFormLibrary.Entering.Error
 {
     partial class CheckUser
     {

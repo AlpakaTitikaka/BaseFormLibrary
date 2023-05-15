@@ -1,4 +1,4 @@
-﻿namespace BaseFormLibrary
+﻿namespace BaseFormLibrary.Selecting
 {
     partial class SearchString
     {

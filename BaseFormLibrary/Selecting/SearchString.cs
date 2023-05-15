@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace BaseFormLibrary
+namespace BaseFormLibrary.Selecting
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public delegate void SearchTextChangedHandler(object sender, EventArgs e);
 
+    /// <summary>
+    /// Поисковая строка
+    /// </summary>
     public partial class SearchString : UserControl
     {
         /// <summary>
@@ -28,7 +34,7 @@ namespace BaseFormLibrary
             InitializeComponent();
         }
 
-        public virtual void OnSearchTextChanged(EventArgs e)
+        protected virtual void OnSearchTextChanged(EventArgs e)
             => SearchTextChanged(this, e);
         /// <summary>
         /// Осуществляет поиск из источника, находит то, что содержит в себе поисковый запрос
@@ -39,7 +45,7 @@ namespace BaseFormLibrary
         /// <param name="selector"></param>
         /// <returns>Найденные варианты</returns>
         public IEnumerable<TSource> Search<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> selector)
-            => LibraryMethods.Find(source, selector, SearchText.Text);
+            => Data.Find(source, selector, SearchText.Text);
 
         private void SearchText_TextChanged(object sender, EventArgs e)
             => OnSearchTextChanged(e);

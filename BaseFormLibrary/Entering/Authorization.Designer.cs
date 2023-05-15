@@ -1,4 +1,4 @@
-﻿namespace BaseFormLibrary
+﻿namespace BaseFormLibrary.Entering
 {
     partial class Authorization
     {
