@@ -63,92 +63,96 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authorization.cs">
+    <Compile Include="Entering\Authorization.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Authorization.Designer.cs">
+    <Compile Include="Entering\Authorization.Designer.cs">
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
-    <Compile Include="Counter.cs">
+    <Compile Include="Methods\Code.cs" />
+    <Compile Include="Counting\Counter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Counter.Designer.cs">
+    <Compile Include="Counting\Counter.Designer.cs">
       <DependentUpon>Counter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Count\CounterForm.cs">
+    <Compile Include="Counting\Count\CounterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Count\CounterForm.Designer.cs">
+    <Compile Include="Counting\Count\CounterForm.Designer.cs">
       <DependentUpon>CounterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataGridTables.cs" />
-    <Compile Include="Error\Chars.cs" />
+    <Compile Include="DataGridViews\DataGridTables.cs" />
+    <Compile Include="Entering\Error\Chars.cs" />
     <Compile Include="Help.cs" />
-    <Compile Include="IDataGridSerializable.cs" />
-    <Compile Include="LibraryMethods.cs" />
-    <Compile Include="Filter.cs">
+    <Compile Include="Methods\Id.cs" />
+    <Compile Include="DataGridViews\IDataGridSerializable.cs" />
+    <Compile Include="Selecting\Data.cs" />
+    <Compile Include="Selecting\Filter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Filter.Designer.cs">
+    <Compile Include="Selecting\Filter.Designer.cs">
       <DependentUpon>Filter.cs</DependentUpon>
     </Compile>
-    <Compile Include="NumberBox.cs">
+    <Compile Include="Methods\Image.cs" />
+    <Compile Include="Number\NumberBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NumberBox.Designer.cs">
+    <Compile Include="Number\NumberBox.Designer.cs">
       <DependentUpon>NumberBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods\Price.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Error\Captcha.cs" />
-    <Compile Include="Error\CheckUser.cs">
+    <Compile Include="Entering\Error\Captcha.cs" />
+    <Compile Include="Entering\Error\CheckUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Error\CheckUser.Designer.cs">
+    <Compile Include="Entering\Error\CheckUser.Designer.cs">
       <DependentUpon>CheckUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchString.cs">
+    <Compile Include="Selecting\SearchString.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SearchString.Designer.cs">
+    <Compile Include="Selecting\SearchString.Designer.cs">
       <DependentUpon>SearchString.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserAddEditInterface.cs">
+    <Compile Include="User\UserAddEditInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserAddEditInterface.Designer.cs">
+    <Compile Include="User\UserAddEditInterface.Designer.cs">
       <DependentUpon>UserAddEditInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserOutInterface.cs">
+    <Compile Include="User\UserOutInterface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserOutInterface.Designer.cs">
+    <Compile Include="User\UserOutInterface.Designer.cs">
       <DependentUpon>UserOutInterface.cs</DependentUpon>
     </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Authorization.resx">
+    <EmbeddedResource Include="Entering\Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Count\CounterForm.resx">
+    <EmbeddedResource Include="Counting\Count\CounterForm.resx">
       <DependentUpon>CounterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Error\CheckUser.resx">
+    <EmbeddedResource Include="Entering\Error\CheckUser.resx">
       <DependentUpon>CheckUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Filter.resx">
+    <EmbeddedResource Include="Selecting\Filter.resx">
       <DependentUpon>Filter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NumberBox.resx">
+    <EmbeddedResource Include="Number\NumberBox.resx">
       <DependentUpon>NumberBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchString.resx">
+    <EmbeddedResource Include="Selecting\SearchString.resx">
       <DependentUpon>SearchString.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserAddEditInterface.resx">
+    <EmbeddedResource Include="User\UserAddEditInterface.resx">
       <DependentUpon>UserAddEditInterface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserOutInterface.resx">
+    <EmbeddedResource Include="User\UserOutInterface.resx">
       <DependentUpon>UserOutInterface.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

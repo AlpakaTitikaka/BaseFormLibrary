@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BaseFormLibrary.Numbers
+namespace BaseFormLibrary.Number
 {
     /// <summary>
     /// Элемент, в котором можно писать только цифры

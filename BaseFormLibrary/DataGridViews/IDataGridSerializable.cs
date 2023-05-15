@@ -1,4 +1,4 @@
-﻿namespace BaseFormLibrary.DataGridView
+﻿namespace BaseFormLibrary.DataGridViews
 {
 
     internal interface IDataGridSerializable

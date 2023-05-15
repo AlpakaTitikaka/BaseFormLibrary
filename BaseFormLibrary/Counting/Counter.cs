@@ -1,4 +1,4 @@
-﻿using BaseFormLibrary.Count;
+﻿using BaseFormLibrary.Counting.Count;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;

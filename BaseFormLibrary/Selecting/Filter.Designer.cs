@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace BaseFormLibrary.Selecting
+﻿namespace BaseFormLibrary.Selecting
 {
     partial class Filter
     {
@@ -44,8 +42,8 @@ namespace BaseFormLibrary.Selecting
             this.FilterPanel2 = new System.Windows.Forms.Panel();
             this.Filters2 = new System.Windows.Forms.ComboBox();
             this.Title3 = new System.Windows.Forms.Label();
-            this.MinPriceBox = new BaseFormLibrary.NumberBox();
-            this.MaxPriceBox = new BaseFormLibrary.NumberBox();
+            this.MinPriceBox = new BaseFormLibrary.Number.NumberBox();
+            this.MaxPriceBox = new BaseFormLibrary.Number.NumberBox();
             this.PricePanel.SuspendLayout();
             this.FiltersOnPanel.SuspendLayout();
             this.FilterPanel3.SuspendLayout();
@@ -298,7 +296,7 @@ namespace BaseFormLibrary.Selecting
         private System.Windows.Forms.ComboBox Filters2;
         private System.Windows.Forms.Label Title3;
         private System.Windows.Forms.Panel FilterPanel3;
-        private NumberBox MaxPriceBox;
-        private NumberBox MinPriceBox;
+        private Number.NumberBox MaxPriceBox;
+        private Number.NumberBox MinPriceBox;
     }
 }
