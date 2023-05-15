@@ -1,4 +1,6 @@
-﻿namespace BaseFormLibrary.Methods
+﻿using System.Text;
+
+namespace BaseFormLibrary.Methods
 {
     /// <summary>
     /// Класс для работы с ценой
@@ -54,6 +56,18 @@
         public static double GetDiscount(double priceWithDiscount, double realPrice)
         {
             return (1 - priceWithDiscount / realPrice);
+        }
+        /// <summary>
+        /// Перечеркивает цену
+        /// </summary>
+        /// <param name="price">Цена</param>
+        /// <returns>Перечеркнутая цена</returns>
+        public static string StrikeOutPrice (string price)
+        {
+            StringBuilder strikePrice = new StringBuilder();
+            foreach (var p in price)
+                strikePrice.Append(p + "\u0336");
+            return strikePrice.ToString();
         }
     }
 }

@@ -45,6 +45,14 @@ namespace BaseFormLibrary.Number
             get => NumberText.Text;
             set => Numbers = int.Parse(value);
         }
+        /// <summary>
+        /// Режим только чтение
+        /// </summary>
+        public bool ReadOnly
+        {
+            get => NumberText.ReadOnly;
+            set => NumberText.ReadOnly = value;
+        }
 
         private void NumberText_KeyPress(object sender, KeyPressEventArgs e)
         {
