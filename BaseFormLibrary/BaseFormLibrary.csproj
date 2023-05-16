@@ -125,6 +125,7 @@
     <Compile Include="Help.cs" />
     <Compile Include="Methods\Id.cs" />
     <Compile Include="DataGridViews\IDataGridSerializable.cs" />
+    <Compile Include="Methods\Timer.cs" />
     <Compile Include="Selecting\Data.cs" />
     <Compile Include="Selecting\Filter.cs">
       <SubType>UserControl</SubType>

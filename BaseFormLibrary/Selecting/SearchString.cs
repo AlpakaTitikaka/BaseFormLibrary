@@ -33,7 +33,9 @@ namespace BaseFormLibrary.Selecting
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         protected virtual void OnSearchTextChanged(EventArgs e)
             => SearchTextChanged(this, e);
         /// <summary>

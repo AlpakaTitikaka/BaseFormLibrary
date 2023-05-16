@@ -34,9 +34,7 @@
         /// <returns>Строка времени</returns>
         public string AddTime()
         {
-            Time++;
-            setTime();
-            return TimeString;
+            return AddTime(1);
         }
         /// <summary>
         /// Добавление времени

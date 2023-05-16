@@ -28,11 +28,11 @@ namespace BaseFormLibrary.Selecting
         /// <summary>
         /// Событие, происходящее после изменения любых параметров фильтра
         /// </summary>
-        protected event OneFilterEventHandler Changed; // зачем
+        public event OneFilterEventHandler Changed; // зачем
         /// <summary>
         /// Событие, происходящее после очистки фильтров
         /// </summary>
-        protected event OneFilterEventHandler FiltersCleared; // принцип YAGNI
+        public event OneFilterEventHandler FiltersCleared; // принцип YAGNI
 
         /// <summary>
         /// Надпись фильтра1

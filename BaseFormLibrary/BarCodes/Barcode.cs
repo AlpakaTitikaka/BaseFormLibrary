@@ -39,7 +39,7 @@ namespace BaseFormLibrary.BarCodes
         /// <returns>Штрих-код в виде изображения Bitmap</returns>
         public Bitmap GetInImage()
         {
-            return barcode.Image.ToBitmap<Bitmap>();
+            return new Bitmap(barcode.ToStream());
         }
         /// <summary>
         /// Импорт штрих-кода в PDF
