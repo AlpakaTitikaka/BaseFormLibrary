@@ -11,7 +11,7 @@ namespace BaseFormLibrary.DataGridViews
     /// Класс модели базы данных, который используется в таблице, обязательно должен быть наследован от IDataGridSerializable.
     /// !!! ДЛЯ РАБОТЫ РЕДАКТИРОВАНИЯ названия полей классов и названия столбцов должны быть одинаковые !!!
     /// </summary>
-    internal class DataGridTables<T, K>
+    public class DataGridTables<T, K>
         where T : IDataGridSerializable 
         where K : DbContext
     {

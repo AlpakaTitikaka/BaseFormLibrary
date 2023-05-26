@@ -1,7 +1,9 @@
 ﻿namespace BaseFormLibrary.DataGridViews
 {
-
-    internal interface IDataGridSerializable
+    /// <summary>
+    /// 
+    /// </summary>
+    public interface IDataGridSerializable
     {
         /// <summary>
         ///  Метод, который возвращает ID 
