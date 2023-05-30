@@ -48,7 +48,7 @@
             this.Password.Location = new System.Drawing.Point(0, 19);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(229, 20);
-            this.Password.TabIndex = 23;
+            this.Password.TabIndex = 1;
             this.Password.UseSystemPasswordChar = true;
             // 
             // Login
@@ -57,7 +57,7 @@
             this.Login.Location = new System.Drawing.Point(0, 21);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(229, 20);
-            this.Login.TabIndex = 22;
+            this.Login.TabIndex = 0;
             // 
             // PasswordVisibility
             // 
@@ -66,7 +66,7 @@
             this.PasswordVisibility.Location = new System.Drawing.Point(63, 50);
             this.PasswordVisibility.Name = "PasswordVisibility";
             this.PasswordVisibility.Size = new System.Drawing.Size(114, 17);
-            this.PasswordVisibility.TabIndex = 21;
+            this.PasswordVisibility.TabIndex = 2;
             this.PasswordVisibility.Text = "Показать пароль";
             this.PasswordVisibility.UseVisualStyleBackColor = true;
             this.PasswordVisibility.CheckedChanged += new System.EventHandler(this.PasswordVisibility_CheckedChanged);
@@ -87,7 +87,7 @@
             this.Authorize.Location = new System.Drawing.Point(3, 129);
             this.Authorize.Name = "Authorize";
             this.Authorize.Size = new System.Drawing.Size(229, 28);
-            this.Authorize.TabIndex = 19;
+            this.Authorize.TabIndex = 3;
             this.Authorize.Text = "Вход";
             this.Authorize.UseVisualStyleBackColor = true;
             this.Authorize.Click += new System.EventHandler(this.Authorize_Click);

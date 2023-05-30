@@ -54,6 +54,10 @@ namespace BaseFormLibrary.Entering
         /// Количество неверных попыток
         /// </summary>
         public int Incorrect { get; set; }
+        /// <summary>
+        /// Время блокировки каптчи при неверном вводе данных
+        /// </summary>
+        public int CaptchaBlockingTime { get; set; }
         private int nowIncorrectCount { get; set; }
         /// <summary>
         /// Количество символов в каптче
@@ -86,6 +90,7 @@ namespace BaseFormLibrary.Entering
         {
             InitializeComponent();
             CaptchaSimbolCount = 3;
+            CaptchaBlockingTime = 10;
             CaptchaSimbols = Chars.Any;
             nowIncorrectCount = 0;
             Incorrect = 2;
@@ -106,7 +111,10 @@ namespace BaseFormLibrary.Entering
                 nowIncorrectCount++;
                 MessageBox.Show("Неверный логин или пароль");
                 if (Incorrect == nowIncorrectCount)
-                    using (CheckUser check = new CheckUser(CaptchaSimbolCount, CaptchaSimbols))
+                    using (CheckUser check = new CheckUser
+                        (CaptchaSimbolCount
+                        , CaptchaSimbols
+                        , CaptchaBlockingTime))
                         if (check.ShowDialog(this) == DialogResult.OK)
                         { 
                             check.Dispose();

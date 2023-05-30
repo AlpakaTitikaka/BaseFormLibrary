@@ -13,15 +13,18 @@ namespace BaseFormLibrary.Entering.Error
         /// </summary>
         /// <param name="simbolCount">Количество символов в каптче</param>
         /// <param name="chars">Тип символов в каптче</param>
-        public CheckUser(int simbolCount, Chars chars)
+        public CheckUser(int simbolCount, Chars chars, int blockingTime)
         {
             InitializeComponent();
             SimbolCount = simbolCount;
-            this.chars = chars;
+            this.chars = chars; 
+            BlockingTime = blockingTime + 1;
+            CurrentBlockingTime = BlockingTime;
         }
         
-        private int BlockingTime = 11; //время блокировки формы при неверном вводе
+        private int BlockingTime; //время блокировки формы при неверном вводе
         private int SimbolCount; //количество символов в капче
+        private int CurrentBlockingTime; //время блокировки (счетчик)
         private Chars chars; // режим капчи (какие символы генерируются)
         private Captcha Picture; //капча
 
@@ -53,10 +56,10 @@ namespace BaseFormLibrary.Entering.Error
 
         private void BlockingTimer_Tick(object sender, EventArgs e) //таймер
         {
-            if (BlockingTime == 0)
+            if (CurrentBlockingTime == 0)
             {
                 Enabled = true;
-                BlockingTime = 11;
+                CurrentBlockingTime = BlockingTime;
                 Text = "Проверка";
                 GenerateCaptcha();
                 BlockingTimer.Stop();
@@ -64,8 +67,8 @@ namespace BaseFormLibrary.Entering.Error
             }
             else
             {
-                BlockingTime--;
-                Text = "Повторите попытку через " + BlockingTime;
+                CurrentBlockingTime--;
+                Text = "Повторите попытку через " + CurrentBlockingTime;
             }
         }
     }
