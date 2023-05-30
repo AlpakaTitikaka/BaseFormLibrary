@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\BaseFormLibrary.xml</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -120,11 +121,11 @@
     <Compile Include="Counting\Count\CounterForm.Designer.cs">
       <DependentUpon>CounterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataGridViews\DataGridTables.cs" />
+    <Compile Include="DataGridT\DataGridTables.cs" />
     <Compile Include="Entering\Error\Chars.cs" />
     <Compile Include="Help.cs" />
     <Compile Include="Methods\Id.cs" />
-    <Compile Include="DataGridViews\IDataGridSerializable.cs" />
+    <Compile Include="DataGridT\IDataGridSerializable.cs" />
     <Compile Include="Methods\Timer.cs" />
     <Compile Include="Selecting\Data.cs" />
     <Compile Include="Selecting\Filter.cs">
