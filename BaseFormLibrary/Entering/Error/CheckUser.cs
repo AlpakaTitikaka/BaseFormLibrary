@@ -13,6 +13,7 @@ namespace BaseFormLibrary.Entering.Error
         /// </summary>
         /// <param name="simbolCount">Количество символов в каптче</param>
         /// <param name="chars">Тип символов в каптче</param>
+        /// <param name="blockingTime">Время блокировки каптчи</param>
         public CheckUser(int simbolCount, Chars chars, int blockingTime)
         {
             InitializeComponent();
