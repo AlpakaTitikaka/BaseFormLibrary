@@ -1,7 +1,7 @@
 ﻿namespace BaseFormLibrary
 {
     /// <summary>
-    /// Помощь, кэп
+    /// Помощь, кэп без кэп
     /// </summary>
     public static class Help
     {
