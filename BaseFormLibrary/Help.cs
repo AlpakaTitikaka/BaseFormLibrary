@@ -9,7 +9,8 @@
         /// В Form_Load нужно записать:
         /// <code>
         ///     authorization1.SelectForm = SelectF;
-        ///     authorization1.LoginPasswordCheck = Session.Start;
+        ///     authorization1.LoginPass
+        ///     wordCheck = Session.Start;
         /// </code>
         /// </summary>
         public static int _4_Authorization { get; set; }
